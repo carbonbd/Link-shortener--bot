@@ -5,7 +5,7 @@ from pyrogram import Client, filters
 API_ID = environ.get('API_ID')
 API_HASH = environ.get('API_HASH')
 BOT_TOKEN = environ.get('BOT_TOKEN')
-API_KEY = environ.get('API_KEY', '5fd20df0c4db85798dd4f5ff3d03e3606a94f98b')
+API_KEY = environ.get('API_KEY', '4c30937a5d92adcbe9288467fe5da3b36e865c03')
 
 bot = Client('gplink bot',
              api_id=API_ID,
@@ -19,7 +19,7 @@ bot = Client('gplink bot',
 async def start(bot, message):
     await message.reply(
         f"**HI THERE..🙋‍♀️ {message.chat.first_name}!**\n\n"
-        "I'm A Link Shortner  bot. Just send me link and get short link\n Made For @TSNM_LINKS")
+        "I'm A Link Shortner  bot. Just send me link and get short link\n Made For @longtime09")
 
 
 @bot.on_message(filters.regex(r'https?://[^\s]+') & filters.private)
@@ -27,13 +27,13 @@ async def link_handler(bot, message):
     link = message.matches[0].group(0)
     try:
         short_link = await get_shortlink(link)
-        await message.reply(f'Here is your [short link]({short_link})\n By:- @TSNM_LINKS', quote=True)
+        await message.reply(f'Here is your [short link]({short_link})\n By:- @longtime09', quote=True)
     except Exception as e:
         await message.reply(f'Error: {e}', quote=True)
 
 
 async def get_shortlink(link):
-    url = 'https://gplinks.in/api'
+    url = 'https://shrinkearn.com/st?api'
     params = {'api': API_KEY, 'url': link}
 
     async with aiohttp.ClientSession() as session:
